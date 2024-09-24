@@ -8,7 +8,7 @@ import {
   ApiTags,
   ApiUnauthorizedResponse
 } from '@nestjs/swagger';
-import { HttpResponse, UserData } from 'src/interfaces';
+import { HttpResponse, UserData } from '@login/login/interfaces';
 
 @ApiTags('Admin')
 @ApiUnauthorizedResponse({
