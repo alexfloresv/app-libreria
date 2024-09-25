@@ -7,7 +7,7 @@ import { TypedEventEmitterModule } from './event-emitter/typed-event-emitter.mod
 
 @Module({
   providers: [LoginService],
-  exports: [LoginService],
+  exports: [LoginService, AdminModule, PrismaModule, TypedEventEmitterModule],
   imports: [AdminModule, PrismaModule, TypedEventEmitterModule],
 })
 export class LoginModule {}
