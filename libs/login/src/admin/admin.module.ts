@@ -8,16 +8,7 @@ import { PrismaModule } from '@login/login/prisma/prisma.module';
 import { AuditModule } from './audit/audit.module';
 import { ModulesModule } from './modules/modules.module';
 import { PermissionsModule } from './permissions/permissions.module';
-/* import { ProductsModule } from './products/products.module';
-import { CategoryModule } from './category/category.module';
-import { ProductVariationModule } from './product-variation/product-variation.module';
-import { BusinessConfigModule } from './business-config/business-config.module';
-import { BusinessHoursModule } from './business-hours/business-hours.module';
-import { ClassScheduleModule } from './class-schedule/class-schedule.module';
-import { ClassPriceModule } from './class-price/class-price.module';
-import { ClassLanguageModule } from './class-language/class-language.module';
-import { ClassRegistrationModule } from './class-registration/class-registration.module';
-import { ClientAdminModule } from './client-admin/client-admin.module'; */
+
 
 @Module({
   imports: [
@@ -28,18 +19,10 @@ import { ClientAdminModule } from './client-admin/client-admin.module'; */
     AuditModule,
     ModulesModule,
     PermissionsModule,
- /*    ProductsModule,
-    CategoryModule,
-    ProductVariationModule,
-    BusinessConfigModule,
-    BusinessHoursModule,
-    ClassScheduleModule,
-    ClassPriceModule,
-    ClassLanguageModule,
-    ClassRegistrationModule,
-    ClientAdminModule */
+
   ],
   controllers: [AdminController],
-  providers: [AdminService]
+  providers: [AdminService],
+  exports: [AdminService, PrismaModule,],
 })
 export class AdminModule {}

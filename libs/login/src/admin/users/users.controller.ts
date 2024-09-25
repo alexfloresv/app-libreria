@@ -89,9 +89,9 @@ export class UsersController {
     return this.usersService.generatePassword();
   }
 
-  @ApiOkResponse({ description: 'Send new password' })
+ /*  @ApiOkResponse({ description: 'Send new password' })
   @Post('send-new-password')
   sendNewPassword(@Body() sendEmailDto: SendEmailDto, @GetUser() user: UserData) {
     return this.usersService.sendNewPassword(sendEmailDto, user);
-  }
+  } */
 }

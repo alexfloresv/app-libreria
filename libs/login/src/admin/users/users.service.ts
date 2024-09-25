@@ -12,7 +12,7 @@ import { handleException } from '@login/login/utils';
 import { RolService } from '../rol/rol.service';
 import { generate } from 'generate-password';
 import { HttpResponse, Rol, UserData, UserPayload } from '@login/login/interfaces';
-import { TypedEventEmitter } from '@login/login/event-emitter/typed-event-emitter.class';
+/* import { TypedEventEmitter } from '@login/login/event-emitter/typed-event-emitter.class'; */
 import { SendEmailDto } from './dto/send-email.dto';
 import { UpdatePasswordDto } from '../auth/dto/update-password.dto';
 import { ValidRols } from '../auth/interfaces';
@@ -26,7 +26,7 @@ export class UsersService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly rolService: RolService,
-    private readonly eventEmitter: TypedEventEmitter,
+    /* private readonly eventEmitter: TypedEventEmitter, */
     private readonly audit: AuditService
   ) {}
 
@@ -103,16 +103,16 @@ export class UsersService {
         });
 
         // Enviamos el usuario al correo con la contraseña temporal
-        const emailResponse = await this.eventEmitter.emitAsync('user.welcome-admin-first', {
+     /*    const emailResponse = await this.eventEmitter.emitAsync('user.welcome-admin-first', {
           name: newUser.name.toUpperCase(),
           email,
           password,
           webAdmin: process.env.WEB_URL
-        });
+        }); */
 
-        if (emailResponse.every((response) => response !== true)) {
+       /*  if (emailResponse.every((response) => response !== true)) {
           throw new BadRequestException('Failed to send email');
-        }
+        } */
 
         const userRoles: Omit<Rol, 'description'>[] = [];
 
@@ -861,7 +861,7 @@ export class UsersService {
    * @param user Usuario que envia el email
    * @returns Estado del envio del email
    */
-  async sendNewPassword(sendEmailDto: SendEmailDto, user: UserData): Promise<HttpResponse<string>> {
+ /*  async sendNewPassword(sendEmailDto: SendEmailDto, user: UserData): Promise<HttpResponse<string>> {
     try {
       const { email, password } = sendEmailDto;
 
@@ -922,7 +922,7 @@ export class UsersService {
       }
       handleException(error, 'Error sending email');
     }
-  }
+  } */
 
   /**
    * Buscar un usuario por su email
