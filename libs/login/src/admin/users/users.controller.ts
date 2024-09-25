@@ -13,7 +13,7 @@ import {
   ApiTags,
   ApiUnauthorizedResponse
 } from '@nestjs/swagger';
-import { HttpResponse, UserData, UserPayload } from 'src/interfaces';
+import { HttpResponse, UserData, UserPayload } from '@login/login/interfaces';
 import { DeleteUsersDto } from './dto/delete-users.dto';
 
 @ApiTags('Users')

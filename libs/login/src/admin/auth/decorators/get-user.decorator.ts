@@ -3,7 +3,7 @@ import {
   ExecutionContext,
   InternalServerErrorException
 } from '@nestjs/common';
-import { UserData } from 'src/interfaces';
+import { UserData } from '@login/login/interfaces';
 
 export const GetUser = createParamDecorator((data, ctx: ExecutionContext): UserData => {
   const request = ctx.switchToHttp().getRequest();

@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Module } from 'src/interfaces';
-import { PrismaService } from 'src/prisma/prisma.service';
-import { handleException } from 'src/utils';
+import { Module } from '@login/login/interfaces';
+import { PrismaService } from '@login/login/prisma/prisma.service';
+import { handleException } from '@login/login/utils';
 
 @Injectable()
 export class ModulesService {

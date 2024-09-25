@@ -1,8 +1,8 @@
 import { BadRequestException, HttpStatus, Injectable } from '@nestjs/common';
 import { UpdatePasswordDto } from './auth/dto/update-password.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '@login/login/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
-import { HttpResponse, UserData } from 'src/interfaces';
+import { HttpResponse, UserData } from '@login/login/interfaces';
 
 @Injectable()
 export class AdminService {

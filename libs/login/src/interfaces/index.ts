@@ -7,7 +7,7 @@ export { Module } from './module.interface';
 export { Permission } from './permission.interface';
 export { ModuleData } from './module.interface';
 export { PermissionData } from './permission.interface';
-export { ProductData } from './product.interface';
+/* export { ProductData } from './product.interface';
 export { CategoryData } from './category.interface';
 export { ProductVariationData } from './product-variation.interface';
 export { BusinessConfigData } from './business-config.interface';
@@ -22,4 +22,4 @@ export { ClientData } from './client.interface';
 export { ClientGoogleData } from './client.interface';
 export { ClientPayload } from './client.interface';
 export { ClientDataUpdate } from './client.interface';
-export { CartData } from './cart.interface';
+export { CartData } from './cart.interface'; */

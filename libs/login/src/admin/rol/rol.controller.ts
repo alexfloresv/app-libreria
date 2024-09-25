@@ -12,7 +12,7 @@ import {
   ApiTags,
   ApiUnauthorizedResponse
 } from '@nestjs/swagger';
-import { HttpResponse, Rol, RolPermissions } from 'src/interfaces';
+import { HttpResponse, Rol, RolPermissions } from '@login/login/interfaces';
 
 @ApiTags('Rol')
 @ApiUnauthorizedResponse({ description: 'Unauthorized' })

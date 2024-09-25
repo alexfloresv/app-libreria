@@ -12,7 +12,7 @@ import { handleException } from '@login/login/utils';
 import { RolService } from '../rol/rol.service';
 import { generate } from 'generate-password';
 import { HttpResponse, Rol, UserData, UserPayload } from '@login/login/interfaces';
-import { TypedEventEmitter } from 'src/event-emitter/typed-event-emitter.class';
+import { TypedEventEmitter } from '@login/login/event-emitter/typed-event-emitter.class';
 import { SendEmailDto } from './dto/send-email.dto';
 import { UpdatePasswordDto } from '../auth/dto/update-password.dto';
 import { ValidRols } from '../auth/interfaces';

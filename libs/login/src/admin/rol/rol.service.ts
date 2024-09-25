@@ -7,11 +7,11 @@ import {
   NotFoundException
 } from '@nestjs/common';
 import { CreateRolDto } from './dto/create-rol.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
-import { handleException } from 'src/utils';
+import { PrismaService } from '@login/login/prisma/prisma.service';
+import { handleException } from '@login/login/utils';
 import { ValidRols } from '../auth/interfaces';
 import { UpdateRolDto } from './dto/update-rol.dto';
-import { HttpResponse, RolPermissions, RolModulesPermissions, Rol } from 'src/interfaces';
+import { HttpResponse, RolPermissions, RolModulesPermissions, Rol } from '@login/login/interfaces';
 
 @Injectable()
 export class RolService {
