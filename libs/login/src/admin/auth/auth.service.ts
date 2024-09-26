@@ -23,7 +23,7 @@ export class AuthService {
     private readonly userService: UsersService,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService
-  ) {}
+  ) { }
 
   /**
    * Inicia la sesión del usuario

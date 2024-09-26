@@ -10,9 +10,9 @@ import { RefreshAuth } from './decorators';
 @ApiInternalServerErrorResponse({
   description: 'Internal server error'
 })
-@Controller('auth' )
+@Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
 
   @ApiCreatedResponse({ description: 'Login user' })
   @Post('login')
