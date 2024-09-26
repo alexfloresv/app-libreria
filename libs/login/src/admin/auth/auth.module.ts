@@ -13,7 +13,9 @@ import { RefreshTokenStrategy } from './strategies/refresh-token.strategy';
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy, RefreshTokenStrategy],
   imports: [
-    ConfigModule,
+    ConfigModule.forRoot({
+      isGlobal: true
+    }),
     UsersModule,
     RolModule,
     PassportModule.register({ defaultStrategy: 'jwt' }),
@@ -28,4 +30,4 @@ import { RefreshTokenStrategy } from './strategies/refresh-token.strategy';
   ],
   exports: [JwtStrategy, RefreshTokenStrategy, PassportModule, JwtModule]
 })
-export class AuthModule {}
+export class AuthModule { }
