@@ -17,7 +17,7 @@ import { HttpResponse, UserData } from '@login/login/interfaces';
 @ApiBadRequestResponse({
   description: 'Bad request'
 })
-@Controller()
+@Controller('admin')
 @Auth()
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}

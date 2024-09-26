@@ -48,7 +48,7 @@ npm warn deprecated gauge@3.0.2: This package is no longer supported.
 
 *instalar prisma dentro de la libreria
 npm install prisma -g
-prima init
+prisma init
 crt+shp + p = reload
 
 **configuracion del proyecto base de datos**

@@ -4,7 +4,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { GetUser } from '../auth/decorators/get-user.decorator';
 import { Auth } from '../auth/decorators';
 import { UpdateUserDto } from './dto';
-import { SendEmailDto } from './dto/send-email.dto';
+
 import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
@@ -20,10 +20,8 @@ import { DeleteUsersDto } from './dto/delete-users.dto';
 @ApiUnauthorizedResponse({ description: 'Unauthorized' })
 @ApiInternalServerErrorResponse({ description: 'Internal server error' })
 @ApiBadRequestResponse({ description: 'Bad request' })
-@Controller({
-  path: 'users',
-  version: '1'
-})
+@Controller('users'
+)
 @Auth()
 export class UsersController {
   private readonly logger = new Logger(UsersController.name);
@@ -89,9 +87,5 @@ export class UsersController {
     return this.usersService.generatePassword();
   }
 
- /*  @ApiOkResponse({ description: 'Send new password' })
-  @Post('send-new-password')
-  sendNewPassword(@Body() sendEmailDto: SendEmailDto, @GetUser() user: UserData) {
-    return this.usersService.sendNewPassword(sendEmailDto, user);
-  } */
+
 }
