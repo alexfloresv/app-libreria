@@ -1,71 +1,85 @@
-*crear proyecto basio
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+</p>
 
-nest new app-libreria
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-*crear libreria 
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-nest g library login
+## Description
 
-nest g library cotizaciones
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-nest g library almacen
+## Project setup
 
-*crear carpetas con la logica de crud dentro de la libreria
-*se debde de estar en src de la libreria 
+```bash
+$ npm install
+```
 
-*crear:
-*en la libreria dentro de src 
-nest g resource admin --no-spec
-nest g resource prisma --no-spec
-nest g resource interfaces --no-spec
-nest g resource utils --no-spec
-nest g resource event-emitter --no-spec
+## Compile and run the project
 
-*crear dentro la estructura de directorios dentro de admin
-*C:\Users\ACIDE\Documents\alx\pruebas\app-biblioteca\libs\login\src\admin>nest g resource autih --no-spec
+```bash
+# development
+$ npm run start
 
-*crear:
-autih
-auth
-modules
-permissions
-rol
-users
+# watch mode
+$ npm run start:dev
 
-*crear dependecias
-comprar package.json del proyecto nuevo y de el de chaqchao insertar dependicas estandarisadas y ya configuradas
+# production mode
+$ npm run start:prod
+```
 
-*del package.json agregar dependias estandarizadas de api-chaqchao
-npm i
+## Run tests
 
+```bash
+# unit tests
+$ npm run test
 
-*si muestra la advertencia de ... // quitar ^ de "bcrypt": "5.1.1",
-//
-npm warn deprecated npmlog@5.0.1: This package is no longer supported.
-npm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.
-npm warn deprecated gauge@3.0.2: This package is no longer supported.
-//
+# e2e tests
+$ npm run test:e2e
 
-*instalar prisma dentro de la libreria
-npm install prisma -g
-prisma init
-crt+shp + p = reload
+# test coverage
+$ npm run test:cov
+```
 
-**configuracion del proyecto base de datos**
-*crear dependencias de api-chac - json-pack
+## Resources
 
-*configurar .env o crear una nueva de datos
-crear .env y copiar los datos de .env.example
+Check out a few resources that may come in handy when working with NestJS:
 
-**en el caso de chaqchao** pero deberia ser el mismo flujo para otra
-*configurar postgres crear base de datos
-*instalar postgress
+- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
+- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
+- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
+- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
+- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
+- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
+- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-*crear usuario
-admin
-*crear la base de datos
-chaqchao
-*crear migraciones de la aplicacion una vez configurado el login
-npx prisma migrate dev
-*******
+## Support
 
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
+
+## License
+
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).

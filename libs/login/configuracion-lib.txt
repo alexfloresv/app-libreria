@@ -1,0 +1,187 @@
+///caso de craer nueva libreria con logica de negocio nueva////
+*crear una libreria nueva
+
+nest g library nueva-libreria
+
+*se creara una carpeta "libs" que administra librearias creadas 
+
+*crear nuevos directorios con una nueva logica de negocio o generico para una tarea o flujo especifico dentro de una nueva libreria
+*se debde de estar en "src" de la libreria 
+
+*crear crud :*en la libreria dentro de src 
+
+nest g resource nuevo-modulo --no-spec
+
+*Api
+*Y
+////////////////////////////////////////////////////////////
+
+*configuracion de la libreria login
+*inportar la libreria login en el modulo del "sistema" principal
+
+import { LoginModule } from '@login/login';// Importar librearía de login
+import { AdminModule } from '@login/login/admin/admin.module'; // Importar AdminModule para acceder a toda la lógica de autentificacion de admin
+import { UsersModule } from '@login/login/admin/users/users.module'; // Importar UsersModule para acceder a toda la lógica CRUD de creación de usuarios
+
+imports: [LoginModule,AdminModule, UsersModule], // Importar LoginModule para acceder a toda la lógica
+
+*configuracion de la cookie para usar la libria login en el archivo "main.ts" del "sistema"
+
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+import * as cookieParser from 'cookie-parser';// Importar cookieParser
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  app.use(cookieParser());//parsear cookies
+
+  await app.listen(3000);
+}
+
+bootstrap();
+ 
+
+*una vez inportada la libreria configuramos las dependencias de la libreria y del proyecto para utilizar la estandarizacion agregamos depencias y librerias en el "package.json" del proyecto principal. *no olvidar la configuracion de la libreria en el mismo archivo "package.json" npm debe de resolver esto al instalar la libreria pero verificar.*
+
+"dependencies": {
+    "@nestjs-modules/mailer": "^2.0.2",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.2.3",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/event-emitter": "^2.0.4",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/mapped-types": "*",
+    "@nestjs/passport": "^10.0.3",
+    "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/swagger": "^7.4.0",
+    "@prisma/client": "^5.20.0",
+    "bcrypt": "5.1.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.10",
+    "express-session": "^1.18.0",
+    "generate-password": "^1.7.1",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.1",
+    "reflect-metadata": "^0.2.0",
+    "rxjs": "^7.8.1",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@nestjs/cli": "^10.0.0",
+    "@nestjs/schematics": "^10.0.0",
+    "@nestjs/testing": "^10.0.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/express": "^4.17.17",
+    "@types/express-session": "^1.18.0",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.3.1",
+    "@types/passport-jwt": "^4.0.1",
+    "@types/supertest": "^6.0.0",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.0",
+    "jest": "^29.5.0",
+    "lint-staged": "^15.2.8",
+    "prettier": "^3.3.3",
+    "prisma": "^5.20.0",
+    "source-map-support": "^0.5.21",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.0",
+    "ts-loader": "^9.4.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.1.3"
+  },
+
+*una vez configurada las depencias usar el comando
+
+npm i
+
+*si muestra la advertencia de ... // quitar ^ de "bcrypt": "5.1.1",
+//
+npm warn deprecated npmlog@5.0.1: This package is no longer supported.
+npm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.
+npm warn deprecated gauge@3.0.2: This package is no longer supported.
+//
+
+*segido vamos a instalar el Orm estandarizado Prisma en el sistema principal
+
+npm install prisma -g
+prisma init
+
+*ahora vamos a configurar nuestro archivo .env del "sistema" copiando y pegando la configuracion .env.tex que esta dentro de la libreria login copiamos y pegamos y redirijimos la ruta a nuestra base de datos.
+
+*ahora copiamos y pegamos la estructura de tablas de nuestra libreria login que esta en schemaLogin.tx a nuestro schema de prisma que acabamos de instalar en el sistema principal una vez copiado y pegado el squema completo tendriamos toda la logia de tablas de login configurada en nuestra base de datos ahora creamos nuestra micracion para crear las tablas en nuestra base de datos con.
+
+npx prisma migrate dev
+
+*verificamos que las tablas se crearon correctamente en nuestra base de datos 
+*verificamos que no exista errores en la inportacion de la libreria al "sistema"
+
+*una vez terminada la configuracion podemos usar la libreria 
+primero crearemos el super admin con
+
+*crear super admin usuario
+@post
+http://localhost:3000/seeds
+
+*login usuario
+@post
+login
+http://localhost:3000/auth/login
+
+*Cerrar Seccion user
+@post
+http://localhost:3000/auth/logout
+
+*ver todos los usuarios
+@get
+http://localhost:3000/users
+
+*para crear un nuevo usuario es necesario un rol iremos la tabla rol de la base de datos y agregaremos de manera forzada un nuevo rol como id en el registro ingresaremos "1634ead1-8146-47ac-8aa7-4cf97f76efc3" y llenamos los campos 
+
+id:1634ead1-8146-47ac-8aa7-4cf97f76efc3 ; name:usuario ; description:usuario ; isActive:t ("t=true; f=false") ; createAt: ; updatedAt: ;
+
+*ahora podemos crear usuarios
+
+*crea usuarios
+@post
+http://localhost:3000/users
+
+*enviar json* contraseña con mayusculas minimas (1) y minimo (1) numero y minimo de caracteres de contraseña (6)
+{
+"name": "usuarioNuevo",
+"email": "usuario.nuevo@gmail.com",
+"password": "Usuario1234",
+"phone": "",
+"roles": [
+"1634ead1-8146-47ac-8aa7-4cf97f76efc3"
+]
+}
+
+@Patch
+http://localhost:3000/users/"id del usuario creado "
+*enviar json*
+
+{
+"name": "tuNombre"
+}
+
+@delete
+http://localhost:3000/users/"id-del usuario"}
+
+*usar restringcion de login usando el decorador de. 
+@Auth
+en el sistema para ingresar al sistema invocalo en el contralador del proyecto

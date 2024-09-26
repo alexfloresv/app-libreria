@@ -17,7 +17,7 @@ import { HttpResponse, Rol, RolPermissions } from '@login/login/interfaces';
 @ApiTags('Rol')
 @ApiUnauthorizedResponse({ description: 'Unauthorized' })
 @ApiInternalServerErrorResponse({ description: 'Internal server error' })
-@Controller({ path: 'rol', version: '1' })
+@Controller('rol')
 @Auth()
 export class RolController {
   constructor(private readonly rolService: RolService) {}
