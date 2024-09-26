@@ -25,5 +25,7 @@
         "libs/login/src/*"
       ]
     }
-  }
+  },
+  "include": ["src/**/*", "libs/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

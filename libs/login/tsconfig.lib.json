@@ -1,8 +1,16 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "paths": {
+      "@login/login": ["dist/libs/login"],
+      "@login/login/*": ["dist/libs/login/*"]
+    },
+    "outDir": "../../dist/libs/login",
+    "rootDir": "./src",
     "declaration": true,
-    "outDir": "../../dist/libs/login"
+    "declarationMap": true,
+    "sourceMap": true,
+    "inlineSources": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
