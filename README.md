@@ -45,7 +45,7 @@ nest g library login
 Al ejecutar este comando se te preguntará qué alias utilizar para
 la librería. Ingresa `@login`:
 
-```bash
+```
 ? What prefix would you like to use for the library (default: @app) @login
 ```
 
@@ -69,69 +69,34 @@ Este comando descargará el código de la librería y lo colocará en la carpeta
 ### Dependencias de npm
 
 Esta libreria depende de varios paquetes de npm.
-El proyecto raíz debería tener al menos los siguientes paquetes:
+
+Ejecuta el siguiente comando en el proyecto para instalar las dependencias
+necesarias:
+
+```bash
+npm i bcrypt@5.1.1 class-transformer@^0.5.1 class-validator@^0.14.1 generate-password@^1.7.1 @nestjs/common@^10.0.0 @nestjs/config@^3.2.3 @nestjs/core@^10.0.0 @nestjs/jwt@^10.2.0 @nestjs/mapped-types @nestjs/passport@^10.0.3 @nestjs/swagger@^7.4.0 passport-jwt@^4.0.1 @prisma/client@^5.20.0 rxjs@^7.8.1 
+```
+
+Las dependencias instaladas, en formato JSON, son estas:
 
 ```json
 {
   "dependencies": {
-    "@nestjs-modules/mailer": "^2.0.2",
-    "@nestjs/common": "^10.0.0",
-    "@nestjs/config": "^3.2.3",
-    "@nestjs/core": "^10.0.0",
-    "@nestjs/event-emitter": "^2.0.4",
-    "@nestjs/jwt": "^10.2.0",
-    "@nestjs/mapped-types": "*",
-    "@nestjs/passport": "^10.0.3",
-    "@nestjs/platform-express": "^10.0.0",
-    "@nestjs/swagger": "^7.4.0",
-    "@prisma/client": "^5.20.0",
     "bcrypt": "5.1.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
-    "cookie-parser": "^1.4.6",
-    "ejs": "^3.1.10",
-    "express-session": "^1.18.0",
     "generate-password": "^1.7.1",
-    "passport": "^0.7.0",
-    "passport-google-oauth20": "^2.0.0",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.2.3",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/mapped-types": "*",
+    "@nestjs/passport": "^10.0.3",
+    "@nestjs/swagger": "^7.4.0",
     "passport-jwt": "^4.0.1",
-    "reflect-metadata": "^0.2.0",
-    "rxjs": "^7.8.1",
-    "uuid": "^10.0.0"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@nestjs/cli": "^10.0.0",
-    "@nestjs/schematics": "^10.0.0",
-    "@nestjs/testing": "^10.0.0",
-    "@types/bcrypt": "^5.0.2",
-    "@types/cookie-parser": "^1.4.7",
-    "@types/express": "^4.17.17",
-    "@types/express-session": "^1.18.0",
-    "@types/jest": "^29.5.2",
-    "@types/node": "^20.3.1",
-    "@types/passport-jwt": "^4.0.1",
-    "@types/supertest": "^6.0.0",
-    "@types/uuid": "^10.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
-    "eslint": "^8.42.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "husky": "^8.0.0",
-    "jest": "^29.5.0",
-    "lint-staged": "^15.2.8",
-    "prettier": "^3.3.3",
-    "prisma": "^5.20.0",
-    "source-map-support": "^0.5.21",
-    "supertest": "^7.0.0",
-    "ts-jest": "^29.1.0",
-    "ts-loader": "^9.4.3",
-    "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.1.3"
-  },
+    "@prisma/client": "^5.20.0",
+    "rxjs": "^7.8.1"
+  }
 }
 ```
 
